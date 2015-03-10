@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Resources;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -13,7 +14,8 @@ namespace StandUp
 			this.labelProductName.Text = AssemblyProduct;
 			this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
 			this.labelCopyright.Text = AssemblyCopyright;
-			this.textBoxDescription.Text =  Properties.Resources.AboutDescp;
+			this.textWebsite.Text = "https://github.com/bkief/StandUp";
+			this.textBoxDescription.Text = Properties.Resources.AboutDescp;
 		}
 
 		#region Assembly Attribute Accessors
@@ -40,19 +42,6 @@ namespace StandUp
 			get
 			{
 				return Assembly.GetExecutingAssembly().GetName().Version.ToString();
-			}
-		}
-
-		public string AssemblyDescription
-		{
-			get
-			{
-				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-				if (attributes.Length == 0)
-				{
-					return "";
-				}
-				return ((AssemblyDescriptionAttribute)attributes[0]).Description;
 			}
 		}
 
@@ -96,6 +85,5 @@ namespace StandUp
 		}
 		#endregion
 
-        
 	}
 }

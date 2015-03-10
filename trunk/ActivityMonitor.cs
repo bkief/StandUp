@@ -24,6 +24,15 @@ namespace StandUp
 
         public void setParams(int maxactivitytime, int nagtime, bool nag)
         {
+            if (maxactivitytime < 60)
+            {
+                maxactivitytime = 60;
+            }
+            if (nagtime < 60)
+            {
+                nagtime = 60;
+            }
+            
             maxActivityTime = maxactivitytime;
             nagTime = nagtime;
             nagStatus = nag;

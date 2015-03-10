@@ -25,6 +25,10 @@ namespace StandUp
 
         public void setParams(int breaktime)
         {
+            if (breaktime < 60)
+            {
+                breaktime = 60;
+            }
             breakTime = breaktime;
         }
 
@@ -45,7 +49,6 @@ namespace StandUp
             {
                 ActiveTime += 1;
             }
-            Console.WriteLine(idleTime + " : " + ActiveTime);
         }
 
         public void reset()
